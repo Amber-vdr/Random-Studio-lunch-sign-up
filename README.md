@@ -46,7 +46,7 @@ Dit project is gemaakt met Node
 
 ## Bronnen 🚤
 * [Chat gpt](https://chat.openai.com/)
-* [Codepen](https://codepen.io/your-work](https://codepen.io/)
+* [Codepen](https://codepen.io/)
 * [scroll-driven-animations.style](https://scroll-driven-animations.style/demos/contact-list/css/)
 * [YouTube](https://www.youtube.com/)
   

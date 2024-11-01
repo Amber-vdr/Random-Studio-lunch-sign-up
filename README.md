@@ -13,9 +13,6 @@
 Voor Random Studio hebben we een aanmeld systeem gemaakt, waarbij je kunt aangeven wanneer je mee eet met de lunch op locatie.
 ![Free Device Mockup - Top view](https://github.com/Amberhva/Random-Studio-lunch-sign-up/assets/112861144/5ac57dc6-e2c8-4d29-8c52-099c67638ef9)
 
-
-🌐 Bekijk [hier](https://random-studio-lunch.adaptable.app) de live link naar de website
-
 ## Gebruik 👩‍💻
 Het doel voor de lunch opdracht is het duidelijk maken voor de kok hoeveel maaltijden er gekookt moeten worden elke dag. Ook moet aanmelden voor de lunch zo pijnloos en snel mogelijk gedaan worden. Hier kun je invullen welke dagen je mee eet, of je allergieën hebt, en of je nog een notitie wilt achterlaten voor de chef. Zodra je je aanwezigheid een keer erin hebt gezet, zou je het liefst “er nooit meer” naar hoeven te kijken. Tenzij je week anders is dan normaal en/of gasten hebt. Ook moet er een dag-/week- en maand-overzicht getoond kunnen worden waarbij je kunt terug kijken hoe vaak iemand heeft mee gegeten.
 

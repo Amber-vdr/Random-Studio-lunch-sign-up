@@ -54,14 +54,18 @@ server.get("/login", function (req, res) {
     res.render("login");
 });
 
-// Definieer de fetchJson functie
 async function fetchJson(url) {
     return await fetch(url)
         .then((response) => response.json())
         .then((data) => {
             // Voeg het attribuut officeDays toe aan elk entry-object
             return data.map((entry) => {
-                entry.officeDays = JSON.parse(entry["office-days"]);
+                try {
+                    entry.officeDays = entry["office-days"] ? JSON.parse(entry["office-days"]) : []; // Controleer of "office-days" bestaat en niet leeg is
+                } catch (error) {
+                    console.error("Error parsing office-days:", error); // Log de fout in de console
+                    entry.officeDays = []; // Zet officeDays op een lege array als fallback
+                }
                 return entry;
             });
         })

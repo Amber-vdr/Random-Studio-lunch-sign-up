@@ -5,13 +5,11 @@
         <ul>
             <li class="day-underline"><a href="/day-schedule">Day</a></li>
             <li><a href="/week-schedule">Week</a></li>
-            <li><a href="/month-schedule">Month</a></li>
         </ul>
     </nav>
 
     <section class="todays-date">
         <div class="date-formate">Thursday, June 22</div>
-        <p>15</p>
     </section>
 
     <div day-section class="container-days">
@@ -24,5 +22,30 @@
         <% } %>
     </div>
 </main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+  // Functie om de huidige datum in te voegen in het formaat "Day, Month DD"
+  function displayCurrentDate() {
+      const dateElement = document.querySelector('.todays-date .date-formate');
+
+      // Controleer of het element bestaat
+      if (!dateElement) return;
+
+      // Huidige datum ophalen
+      const today = new Date();
+      
+      // Opties voor dag, maand en datum formaat
+      const options = { weekday: 'long', month: 'long', day: 'numeric' };
+      
+      // Datum formatteren en toevoegen aan de .date-formate div
+      const formattedDate = today.toLocaleDateString('en-US', options);
+      dateElement.textContent = formattedDate;
+  }
+
+  // Functie aanroepen om de datum weer te geven
+  displayCurrentDate();
+});
+</script>
 
 <%- include('./partials/foot.ejs') %>

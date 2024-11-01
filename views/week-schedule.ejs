@@ -5,13 +5,11 @@
         <ul>
             <li><a href="/day-schedule">Day</a></li>
             <li class="week-underline"><a href="/week-schedule">Week</a></li>
-            <li><a href="/month-schedule">Month</a></li>
         </ul>
     </nav>
 
     <section class="todays-date">
         <div class="date-formate">Wednesday, June 21</div>
-        <p>15</p>
     </section>
 
     <section week-section>
@@ -52,5 +50,59 @@
 </div>
     </section>
 </main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+  // Functie om de huidige datum weer te geven in .date-formate
+  function displayCurrentDate() {
+      const dateElement = document.querySelector('.date-formate');
+
+      // Controleer of het element bestaat
+      if (dateElement) {
+          const today = new Date();
+          const options = { weekday: 'long', month: 'long', day: 'numeric' };
+          const formattedDate = today.toLocaleDateString('en-US', options);
+          dateElement.textContent = formattedDate;
+      }
+  }
+
+  // Functie om de datums van de week weer te geven in de tabs
+  function displayWeekDates() {
+      const today = new Date();
+      
+      // Vind de datum van maandag van deze week
+      const dayIndex = today.getDay();
+      const daysFromMonday = dayIndex === 0 ? -6 : 1 - dayIndex;
+      const monday = new Date(today.setDate(today.getDate() + daysFromMonday));
+
+      // Array met dagen en corresponderende elementen
+      const weekDays = [
+          { day: "Mon", element: document.querySelector('[data-tab-target="#monday"]') },
+          { day: "Tue", element: document.querySelector('[data-tab-target="#tuesday"]') },
+          { day: "Wed", element: document.querySelector('[data-tab-target="#wednesday"]') },
+          { day: "Thu", element: document.querySelector('[data-tab-target="#thursday"]') },
+          { day: "Fri", element: document.querySelector('[data-tab-target="#friday"]') }
+      ];
+
+      // Loop door de dagen en stel de juiste datum in
+      weekDays.forEach((weekDay, index) => {
+          const date = new Date(monday); // Maak een nieuwe datum gebaseerd op maandag
+          date.setDate(monday.getDate() + index); // Voeg dagen toe om de juiste datum te krijgen
+          
+          // Format de datum als DD/MM
+          const formattedDate = `${date.getDate()}/${date.getMonth() + 1}`;
+          
+          // Update de datum in de <li> elementen
+          if (weekDay.element) {
+              weekDay.element.innerHTML = `${weekDay.day} <br /> ${formattedDate}`;
+          }
+      });
+  }
+
+  // Functies aanroepen om de huidige datum en weekdatums weer te geven
+  displayCurrentDate();
+  displayWeekDates();
+});
+</script>
 
 <%- include('./partials/foot.ejs') %>
